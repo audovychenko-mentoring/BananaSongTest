@@ -12,11 +12,13 @@ namespace BananaSongTest.test.Steps
             Browser.Instance.GoToUrl("https://www.google.com/");
         }
 
-        public static void SearchForBananaSong()
+        public static void SearchForBananaSongAndNavigateToYouTube()
         {
             var googleSearchPage = new GoogleSearchPage();
             googleSearchPage.SearchForKeyWords("Banana Song");
             googleSearchPage.ConfirmSelection();
+            googleSearchPage.NavigateToYouTubeDespicableMeVideo();
+
         }
     }
 }

@@ -7,6 +7,8 @@ namespace BananaSongTest.Pages
     {
         public UIElement SearchField => new UIElement(By.XPath("//*[@title='Search']"));
 
+        public UIElement DespicableMeLink => new UIElement(By.XPath("//h3[contains(text(),'Despicable Me')]"));
+
         public void SearchForKeyWords(string searchRequest) 
         {
             SearchField.WebElement.SendKeys(searchRequest);
@@ -15,6 +17,11 @@ namespace BananaSongTest.Pages
         public void ConfirmSelection()
         {
             SearchField.WebElement.SendKeys(Keys.Enter);
+        }
+
+        public void NavigateToYouTubeDespicableMeVideo()
+        {
+            DespicableMeLink.WebElement.Click();
         }
     }
 }
