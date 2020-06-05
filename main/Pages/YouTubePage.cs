@@ -14,10 +14,10 @@ namespace BananaSongTest.main.Pages
         public int returnViewsQuantity()
         {
             string viewsQuantity = views.WebElement.Text;
-            Regex rx = new Regex(@"[0-9,]+");
+            Regex rx = new Regex(@"[0-9, ]+");
             MatchCollection matches = rx.Matches(viewsQuantity);
             String newString = matches[0].Groups[0].Value;
-            String formattedString = newString.Replace(",", "");
+            String formattedString = newString.Replace(",", "").Replace(" ", "");
             int result = int.Parse(formattedString);
             return result;
         }

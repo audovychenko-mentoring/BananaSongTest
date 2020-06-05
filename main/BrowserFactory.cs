@@ -11,14 +11,16 @@ namespace BananaSongTest
 {
     class BrowserFactory
     {
-        public static IWebDriver GetDriver(BrowserType browser)
+        public static IWebDriver GetDriver(BrowserType browser, BrowserLocale locale)
         {
             switch (browser)
             {
                // case BrowserType.Chrome:
                //     return new ChromeDriver();
                 case BrowserType.Firefox:
-                    return new FirefoxDriver();
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.SetPreference("intl.accept_languages", locale.ToString());
+                    return new FirefoxDriver(options);
                 default:
                     throw new Exception("Unknown driver");
             }

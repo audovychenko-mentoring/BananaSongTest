@@ -18,7 +18,6 @@ namespace BananaSongTest.test.Steps
             googleSearchPage.SearchForKeyWords("Banana Song");
             googleSearchPage.ConfirmSelection();
             googleSearchPage.NavigateToYouTubeDespicableMeVideo();
-
         }
     }
 }

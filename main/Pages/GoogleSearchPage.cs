@@ -5,7 +5,7 @@ namespace BananaSongTest.Pages
 {
     class GoogleSearchPage
     {
-        public UIElement SearchField => new UIElement(By.XPath("//*[@title='Search']"));
+        public UIElement SearchField => new UIElement(By.XPath("//input[@type='text']"));
 
         public UIElement DespicableMeLink => new UIElement(By.XPath("//h3[contains(text(),'Despicable Me')]"));
 

@@ -21,20 +21,26 @@ namespace BananaSongTest
             get { return instance; }
         }
 
+        private static readonly BrowserLocale locale = BrowserLocale.RU;
+        public static BrowserLocale Locale
+        {
+            get { return locale; }
+        }
+
         private IWebDriver driver;
 
         public IWebDriver Driver
         {
             get 
             {
-                if (driver == null) InitBrowser(BrowserType.Firefox);
+                if (driver == null) InitBrowser(BrowserType.Firefox, locale);
                 return driver;
             }
         }
 
-        public void InitBrowser(BrowserType browser)
+       public void InitBrowser(BrowserType browser, BrowserLocale locale)
         {
-            driver = BrowserFactory.GetDriver(browser);
+            driver = BrowserFactory.GetDriver(browser, locale);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
         }
 
