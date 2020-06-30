@@ -38,9 +38,9 @@ namespace BananaSongTest
             }
         }
 
-       public void InitBrowser(BrowserType browser, BrowserLocale locale)
+       public void InitBrowser(BrowserType type, BrowserLocale locale)
         {
-            driver = BrowserFactory.GetDriver(browser, locale);
+            driver = BrowserFactory.GetDriver(type, locale);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
         }
 
