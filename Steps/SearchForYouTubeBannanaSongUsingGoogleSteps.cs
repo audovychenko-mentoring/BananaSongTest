@@ -14,6 +14,28 @@ namespace BananaSongTest
             Browser.Instance.CloseBrowser();
         }
 
+        [Given(@"User navigate to the login page")]
+        public void GivenUserNavigateToTheLoginPage()
+        {
+            var googleSearchPage = new GoogleSearchPage();
+            googleSearchPage.NavigateToSignInPage();
+        }
+
+        [When(@"User submit username and password (.*)")]
+        public void WhenUserSubmitUsernameAndPassword(string password)
+        {
+            var signInPage = new SignInPage();
+            signInPage.SelectDefaultProfile();
+            signInPage.EnterPassword(password);
+        }
+
+        [Then(@"User should be logged into (.*) account")]
+        public void UserShouldBeLoggedIn(string accountTitle)
+        {
+            var googleSearchPage = new GoogleSearchPage();
+            Assert.IsNotNull(googleSearchPage.ReturnLoggedInIcon());
+        }
+
         [Given(@"User is on the Google search page")]
         public void GivenUserIsOnTheGoogleSearchPage()
         {

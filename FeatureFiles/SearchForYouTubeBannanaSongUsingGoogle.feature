@@ -4,7 +4,13 @@ In order to validate views quantity for bannana song
 As a basic User 
 I want to search for bannana song using Google
 
-@bannanasong
+#@bannanasong
+
+Background: 
+	Given User navigate to the login page
+	When User submit username and password 223218Qwerty
+	Then User should be logged into Google Account: Test Mentoring (mentoringepam@gmail.com) account
+
 Scenario: Search for YouTube song using Google
 	Given User is on the Google search page
 	When User search for banana song

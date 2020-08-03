@@ -1,8 +1,6 @@
 ﻿using BananaSongTest.Elements;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace BananaSongTest.main.Pages

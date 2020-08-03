@@ -9,6 +9,10 @@ namespace BananaSongTest.Pages
 
         public UIElement DespicableMeLink => new UIElement(By.XPath("//h3[contains(text(),'Despicable Me')]"));
 
+        public UIElement SignInButton => new UIElement(By.XPath("//a[@id = 'gb_70']"));
+
+        public UIElement LoggedInIcon => new UIElement(By.XPath("//*[@title = '${accountTitle}']"));
+
         public void SearchForKeyWords(string searchRequest) 
         {
             SearchField.WebElement.SendKeys(searchRequest);
@@ -22,6 +26,16 @@ namespace BananaSongTest.Pages
         public void NavigateToYouTubeDespicableMeVideo()
         {
             DespicableMeLink.WebElement.Click();
+        }
+
+        public void NavigateToSignInPage()
+        {
+            SignInButton.WebElement.Click();
+        }
+
+        public UIElement ReturnLoggedInIcon()
+        {
+            return LoggedInIcon;
         }
     }
 }
