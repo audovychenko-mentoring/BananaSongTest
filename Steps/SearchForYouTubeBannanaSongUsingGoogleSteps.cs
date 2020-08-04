@@ -42,11 +42,11 @@ namespace BananaSongTest
             Browser.Instance.GoToUrl("https://www.google.com/");
         }
         
-        [When(@"User search for banana song")]
-        public void WhenUserSearchForBananaSong()
+        [When(@"User search for (.*)")]
+        public void WhenUserSearchForBananaSong(string search)
         {
             var googleSearchPage = new GoogleSearchPage();
-            googleSearchPage.SearchForKeyWords("Banana Song");
+            googleSearchPage.SearchForKeyWords(search);
             googleSearchPage.ConfirmSelection();
         }
         

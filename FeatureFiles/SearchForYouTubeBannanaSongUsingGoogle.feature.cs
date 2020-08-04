@@ -72,6 +72,22 @@ namespace BananaSongTest.FeatureFiles
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 9
+#line hidden
+#line 10
+ testRunner.Given("User navigate to the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 11
+ testRunner.When("User submit username and password 223218Qwerty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 12
+ testRunner.Then("User should be logged into Google Account: Test Mentoring (mentoringepam@gmail.co" +
+                    "m) account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+        }
+        
         [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google", SourceLine=13)]
         public virtual void SearchForYouTubeSongUsingGoogle()
         {
@@ -98,6 +114,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 9
+this.FeatureBackground();
+#line hidden
 #line 15
  testRunner.Given("User is on the Google search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
@@ -140,6 +159,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 9
+this.FeatureBackground();
+#line hidden
 #line 21
  testRunner.Given("User is on the Google search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden

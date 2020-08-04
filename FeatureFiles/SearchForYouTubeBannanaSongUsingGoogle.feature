@@ -17,6 +17,12 @@ Scenario: Search for YouTube song using Google
 	And User selects YouTube link to navigate
 	Then User is on the page with YouTube title
 
+Examples: 
+    | searchRequest | titleToValidate |
+    | banana song   | Despicable Me   |
+    | redroom       | Redroom         |
+    | арменфильм    | говорящая рыба  |
+
 Scenario: Validate the views quantity
 	Given User is on the Google search page
 	When User search for banana song
