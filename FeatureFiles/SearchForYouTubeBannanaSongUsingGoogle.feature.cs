@@ -72,27 +72,18 @@ namespace BananaSongTest.FeatureFiles
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
+        public virtual void SearchForYouTubeSongUsingGoogle(string searchRequest, string titleToValidate, string[] exampleTags)
         {
-#line 9
-#line hidden
-#line 10
- testRunner.Given("User navigate to the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 11
- testRunner.When("User submit username and password 223218Qwerty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 12
- testRunner.Then("User should be logged into Google Account: Test Mentoring (mentoringepam@gmail.co" +
-                    "m) account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google", SourceLine=13)]
-        public virtual void SearchForYouTubeSongUsingGoogle()
-        {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] @__tags = new string[] {
+                    "bannanasong"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("searchRequest", searchRequest);
+            argumentsOfScenario.Add("titleToValidate", titleToValidate);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for YouTube song using Google", null, tagsOfScenario, argumentsOfScenario);
 #line 14
 this.ScenarioInitialize(scenarioInfo);
@@ -114,32 +105,56 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 9
-this.FeatureBackground();
-#line hidden
 #line 15
  testRunner.Given("User is on the Google search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 16
- testRunner.When("User search for banana song", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User search for {0}", searchRequest), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 17
  testRunner.And("User selects YouTube link to navigate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
- testRunner.Then("User is on the page with YouTube title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("User is on the page with {0} title", titleToValidate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Validate the views quantity", SourceLine=19)]
+        [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google, banana song", new string[] {
+                "bannanasong"}, SourceLine=21)]
+        public virtual void SearchForYouTubeSongUsingGoogle_BananaSong()
+        {
+#line 14
+this.SearchForYouTubeSongUsingGoogle("banana song", "Despicable Me", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google, redroom", new string[] {
+                "bannanasong"}, SourceLine=21)]
+        public virtual void SearchForYouTubeSongUsingGoogle_Redroom()
+        {
+#line 14
+this.SearchForYouTubeSongUsingGoogle("redroom", "Redroom", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google, арменфильм", new string[] {
+                "bannanasong"}, SourceLine=21)]
+        public virtual void SearchForYouTubeSongUsingGoogle_Арменфильм()
+        {
+#line 14
+this.SearchForYouTubeSongUsingGoogle("арменфильм", "говорящая рыба", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Validate the views quantity", SourceLine=25)]
         public virtual void ValidateTheViewsQuantity()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the views quantity", null, tagsOfScenario, argumentsOfScenario);
-#line 20
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -159,19 +174,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 9
-this.FeatureBackground();
-#line hidden
-#line 21
+#line 27
  testRunner.Given("User is on the Google search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 22
+#line 28
  testRunner.When("User search for banana song", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 29
  testRunner.And("User selects YouTube link to navigate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 24
+#line 30
  testRunner.Then("Views quantity for the banana song video is more than 50000000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
