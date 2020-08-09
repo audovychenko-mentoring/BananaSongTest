@@ -36,13 +36,13 @@ Scenario: Login to gmail
 
 Scenario: Create a new email and save as a draft
     Given User is signed in into Gmail
-	When User creates new email with newTitle title
+	When User creates new email to send to test@gmail.com with mentoring title and test text
 	And User saves a new email to drafts
     Then New email with newTitle title is in draft folder
 
 Scenario: Send an email from the draft folder
     Given User is signed in into Gmail
 	And User is in the draft folder
-	When User send the draft email to newReceipenEmail recipient email
+	When User send the draft email
 	Then Email with newTitle title is no longer in draft folder
 	And Email with newTitle title is in sent folder

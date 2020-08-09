@@ -13,6 +13,8 @@ namespace BananaSongTest.Pages
 
         public UIElement LoggedInIcon => new UIElement(By.XPath("//*[@title = '${accountTitle}']"));
 
+        public UIElement GmailLink => new UIElement(By.XPath("//a[contains(text(), 'Gmail')]"));
+
         public void SearchForKeyWords(string searchRequest) 
         {
             SearchField.WebElement.SendKeys(searchRequest);
@@ -31,6 +33,11 @@ namespace BananaSongTest.Pages
         public void NavigateToSignInPage()
         {
             SignInButton.WebElement.Click();
+        }
+
+        public void NavigateToGmail()
+        {
+            GmailLink.WebElement.Click();
         }
 
         public UIElement ReturnLoggedInIcon()
