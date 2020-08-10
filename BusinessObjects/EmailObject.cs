@@ -19,12 +19,24 @@ namespace BananaSongTest.BusinessObjects
             return new NewEmail(to, subject, text);
         }
 
-        public void DeleteAnEmail()
+        public void SendAnEmail()
         {
+            var gmailMainPage = new GmailMainPage();
+            gmailMainPage.ClickSendEmailButton();
         }
 
-        public void SendAnEmail(NewEmail email)
-        { 
+        public int searchEmailsByTitleAndReturnQuantity(string title)
+        {
+            var gmailMainPage = new GmailMainPage();
+            gmailMainPage.SearchForElement(title);
+            return gmailMainPage.returnTheQuantityOfDraftEmails();
+        }
+
+        public void openEmailByTitle(string title)
+        {
+            var gmailMainPage = new GmailMainPage();
+            gmailMainPage.SearchForElement(title);
+            gmailMainPage.ClickOnFirstEmailFromTheList();
         }
     }
 

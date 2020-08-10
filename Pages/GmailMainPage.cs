@@ -1,5 +1,8 @@
-﻿using BananaSongTest.Elements;
+﻿using BananaSongTest.BusinessObjects;
+using BananaSongTest.Elements;
 using OpenQA.Selenium;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BananaSongTest.Pages
 {
@@ -20,9 +23,17 @@ namespace BananaSongTest.Pages
 
         public UIElement TextField => new UIElement(By.XPath("//div[@id=':9f']"));
 
-        public UIElement AddAttachmentButton => new UIElement(By.XPath("//*[@id = ':9t']"));
+        public UIElement AddAttachmentButton => new UIElement(By.Id(":9t"));
 
-        public UIElement CloseButton => new UIElement(By.XPath("//*[@id = ':bw']"));
+        public UIElement CloseButton => new UIElement(By.Id(":bw"));
+
+        public UIElement EmailsTable => new UIElement(By.XPath("//table[@id=':1v']"));
+
+        public UIElement DraftEmails => new UIElement(By.XPath("//tr[@class='zA yO']"));
+
+        public UIElement SearchField => new UIElement(By.Id("aso_search_form_anchor"));
+
+        public UIElement SendEmailButton => new UIElement(By.Id(":7c"));
 
         public void NavigateToInbox() 
         {
@@ -42,6 +53,11 @@ namespace BananaSongTest.Pages
         public void ClickToComposeNewEmail()
         {
             ComposeButton.WebElement.Click();
+        }
+
+        public void ClickSendEmailButton()
+        {
+            SendEmailButton.WebElement.Click();
         }
 
         public void PopulateToField(string to)
@@ -67,6 +83,22 @@ namespace BananaSongTest.Pages
         public void ClickCloseButton()
         {
             CloseButton.WebElement.Click();
+        }
+
+        public void SearchForElement(string search)
+        {
+            TextField.WebElement.SendKeys(search);
+            TextField.WebElement.SendKeys(Keys.Enter);
+        }
+
+        public int returnTheQuantityOfDraftEmails()
+        {
+            return DraftEmails.WebElements.Count;
+        }
+
+        public void ClickOnFirstEmailFromTheList()
+        {
+            DraftEmails.WebElement.Click();
         }
     }
 }

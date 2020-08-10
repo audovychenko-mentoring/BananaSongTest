@@ -19,14 +19,14 @@ namespace BananaSongTest
         public void GivenUserNavigateToTheLoginPage()
         {
             var googleSearchPage = new GoogleSearchPage();
-            googleSearchPage.NavigateToSignInPage();
+            Browser.Instance.GoToUrl("https://www.gmail.com/");
         }
 
-        [When(@"User submit username and password (.*)")]
-        public void WhenUserSubmitUsernameAndPassword(string password)
+        [When(@"User submit username (*) and password (.*)")]
+        public void WhenUserSubmitUsernameAndPassword(string userName, string password)
         {
             var signInPage = new SignInPage();
-            signInPage.SelectDefaultProfile();
+            signInPage.PopulateEmailAndClickEnter(userName);
             signInPage.EnterPassword(password);
         }
 
@@ -101,28 +101,33 @@ namespace BananaSongTest
             gmailMainPage.ClickCloseButton();
         }
 
-        [When(@"User send the draft email")]
-        public void WhenUserSendTheDraftEmailToNewReceipenEmailRecipientEmail()
+        [When(@"User send the draft email with (.*) title")]
+        public void WhenUserSendTheDraftEmailToNewReceipenEmailRecipientEmail(string newTitle)
         {
-            ScenarioContext.Current.Pending();
+            var email = new EmailObject();
+            email.openEmailByTitle(newTitle);
+            email.SendAnEmail();
         }
 
-        [Then(@"New email with newTitle title is in draft folder")]
-        public void ThenNewEmailWithNewTitleTitleIsInDraftFolder()
+        [Then(@"New email with (.*) title is in draft folder")]
+        public void ThenNewEmailWithNewTitleTitleIsInDraftFolder(string newTitle)
         {
-            ScenarioContext.Current.Pending();
+            var email = new EmailObject();
+            Assert.AreEqual(email.searchEmailsByTitleAndReturnQuantity("in:draft " + newTitle), 1);
         }
 
-        [Then(@"Email with newTitle title is no longer in draft folder")]
-        public void ThenEmailWithNewTitleTitleIsNoLongerInDraftFolder()
+        [Then(@"Email with (.*) title is no longer in draft folder")]
+        public void ThenEmailWithNewTitleTitleIsNoLongerInDraftFolder(string newTitle)
         {
-            ScenarioContext.Current.Pending();
+            var email = new EmailObject();
+            Assert.AreEqual(email.searchEmailsByTitleAndReturnQuantity("in:draft " + newTitle), 0);
         }
 
-        [Then(@"Email with newTitle title is in sent folder")]
-        public void ThenEmailWithNewTitleTitleIsInSentFolder()
+        [Then(@"Email with (.*) title is in sent folder")]
+        public void ThenEmailWithNewTitleTitleIsInSentFolder(string newTitle)
         {
-            ScenarioContext.Current.Pending();
+            var email = new EmailObject();
+            Assert.AreEqual(email.searchEmailsByTitleAndReturnQuantity("in:sent " + newTitle), 0);
         }
     }
 }

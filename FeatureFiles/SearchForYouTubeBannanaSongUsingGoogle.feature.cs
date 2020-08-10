@@ -72,20 +72,15 @@ namespace BananaSongTest.FeatureFiles
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SearchForYouTubeSongUsingGoogle(string searchRequest, string titleToValidate, string[] exampleTags)
+        [TechTalk.SpecRun.ScenarioAttribute("Login to gmail", new string[] {
+                "bannanasong"}, SourceLine=31)]
+        public virtual void LoginToGmail()
         {
-            string[] @__tags = new string[] {
+            string[] tagsOfScenario = new string[] {
                     "bannanasong"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("searchRequest", searchRequest);
-            argumentsOfScenario.Add("titleToValidate", titleToValidate);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for YouTube song using Google", null, tagsOfScenario, argumentsOfScenario);
-#line 14
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login to gmail", null, tagsOfScenario, argumentsOfScenario);
+#line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -105,56 +100,27 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 15
- testRunner.Given("User is on the Google search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+    testRunner.Given("User navigate to the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 16
- testRunner.When(string.Format("User search for {0}", searchRequest), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+ testRunner.When("User submit username \'mentoringepam@gmail.com\' and password \'223218Qwerty\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 17
- testRunner.And("User selects YouTube link to navigate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 18
- testRunner.Then(string.Format("User is on the page with {0} title", titleToValidate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 35
+ testRunner.Then("User should be logged into Google Account: Test Mentoring (mentoringepam@gmail.co" +
+                        "m) account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google, banana song", new string[] {
-                "bannanasong"}, SourceLine=21)]
-        public virtual void SearchForYouTubeSongUsingGoogle_BananaSong()
-        {
-#line 14
-this.SearchForYouTubeSongUsingGoogle("banana song", "Despicable Me", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google, redroom", new string[] {
-                "bannanasong"}, SourceLine=21)]
-        public virtual void SearchForYouTubeSongUsingGoogle_Redroom()
-        {
-#line 14
-this.SearchForYouTubeSongUsingGoogle("redroom", "Redroom", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Search for YouTube song using Google, арменфильм", new string[] {
-                "bannanasong"}, SourceLine=21)]
-        public virtual void SearchForYouTubeSongUsingGoogle_Арменфильм()
-        {
-#line 14
-this.SearchForYouTubeSongUsingGoogle("арменфильм", "говорящая рыба", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Validate the views quantity", SourceLine=25)]
-        public virtual void ValidateTheViewsQuantity()
+        [TechTalk.SpecRun.ScenarioAttribute("Create a new email and save as a draft", SourceLine=36)]
+        public virtual void CreateANewEmailAndSaveAsADraft()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the views quantity", null, tagsOfScenario, argumentsOfScenario);
-#line 26
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new email and save as a draft", null, tagsOfScenario, argumentsOfScenario);
+#line 37
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -174,17 +140,63 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 27
- testRunner.Given("User is on the Google search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
+    testRunner.Given("User is signed in into Gmail", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 28
- testRunner.When("User search for banana song", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
+ testRunner.When("User creates new email to send to test@gmail.com with mentoring title and test te" +
+                        "xt", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 29
- testRunner.And("User selects YouTube link to navigate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
+ testRunner.And("User saves a new email to drafts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 30
- testRunner.Then("Views quantity for the banana song video is more than 50000000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+    testRunner.Then("New email with newTitle title is in draft folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Send an email from the draft folder", SourceLine=42)]
+        public virtual void SendAnEmailFromTheDraftFolder()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send an email from the draft folder", null, tagsOfScenario, argumentsOfScenario);
+#line 43
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 44
+    testRunner.Given("User is signed in into Gmail", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 45
+ testRunner.And("User is in the draft folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 46
+ testRunner.When("User send the draft email with newTitle title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 47
+ testRunner.Then("Email with newTitle title is no longer in draft folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 48
+ testRunner.And("Email with newTitle title is in sent folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

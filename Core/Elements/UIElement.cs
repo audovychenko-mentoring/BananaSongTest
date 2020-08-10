@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,14 @@ namespace BananaSongTest.Elements
             get
             {
                 return Browser.Instance.Driver.FindElement(Locator);
+            }
+        }
+
+        public ReadOnlyCollection<IWebElement> WebElements
+        {
+            get
+            {
+                return Browser.Instance.Driver.FindElements(Locator);
             }
         }
 
